@@ -1,0 +1,473 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td { margin:0; padding:0; }
+table { border-collapse:collapse; border-spacing:0; }
+fieldset,img { border:0; }
+address,caption,cite,code,dfn,em,strong,th,var { font-style:normal; font-weight:normal; }
+caption,th { text-align:left; }
+h1,h2,h3,h4,h5,h6 { font-size:100%; font-weight:normal; }
+q:before,q:after { content:''; }
+abbr,acronym { border:0; }
+
+body {
+  background: #fff;
+  background-size: 40px 40px;
+  background-image: radial-gradient(circle, #000000 1px, rgba(0, 0, 0, 0) 1px);
+}
+/* optional Container STYLES */
+.chart { height: 100%; margin: 5px; width: 100%; overflow: visible;}
+
+.Treant > .node {
+  padding: 3px;
+  border: 1px solid #007CB7;
+  border-radius: 3px;
+  min-width: 200px;
+  background: #007CB7;
+  color: white;
+  border-radius: 8px;
+  box-shadow: 3px 3px 10px #818181;
+  transition: 1s;
+}
+
+.Treant > .node img { width: 100%; height: 100%; }
+
+.Treant .collapse-switch { width: 0%; height: 0%; border: none; }
+
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+}
+
+button {
+    float: right;
+}
+
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: white;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    box-shadow: 3px 0px 3px lightslategrey;
+    border-right: 1px solid #818181;
+    margin-top: 40px;
+  }
+  
+  .sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #454545 !important;
+    display: block;
+    transition: 0.3s;
+  }
+
+  ul {
+      padding: 8px 8px 8px 32px;
+      list-style-type: none;
+      display: none;
+      margin-bottom: 20px !important;
+  }
+
+  li {
+      color: #454545;
+      cursor: pointer;
+      transition: 0.3s;
+  }
+
+  li:hover {
+    color: #D5D717 !important;
+  }
+  
+  .sidebar a:hover {
+    color: #f1f1f1 !important;
+    background-color: #00656B;
+    font-size: 27px;
+    box-shadow: 0px 2px 2px lightslategrey;
+    padding: 9px 9px 9px 32px;
+  }
+  
+  .sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  .openbtn {
+    font-size: 15px;
+    cursor: pointer;
+    background-color: #D5D717;
+    color: #454545;
+    padding: 5px 12px;
+    border: 1px solid #007CB7;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 1s;
+  }
+  
+  .openbtn:hover {
+    background-color: rgb(229, 230, 173);
+  }
+  
+  #main {
+    transition: margin-left .5s;
+    padding: 16px;
+  }
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+  }
+
+  .task {
+      font-weight: bold;
+      font-size: 12pt;
+      margin-left: 5px;
+      margin-top: 5px;
+  }
+
+  .sidebar-title {
+    color: #818181;
+    margin-left: 32px;
+    font-size: 20pt;
+    transition: 0.3s;
+  }
+
+  .sub {
+    font-size: 14pt !important;
+  }
+
+  .sub::hover {
+    color: white !important;
+  }
+
+  .input {
+    cursor:  default !important;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: black;
+  }
+
+  .sidebar-button {
+    color: black;
+    float: left !important;
+  }
+
+  .selected {
+    animation-name: animation;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes animation {
+    0% { box-shadow: 5px 5px 8px #D5D717, -5px -5px 8px rgb(250, 252, 162), -5px 5px 8px rgb(192, 196, 0), 5px -3px 8px #FF6F61; }
+    25% { box-shadow: 5px 5px 8px #FF6F61, -5px -5px 8px rgb(192, 196, 0), -5px 5px 8px #D5D717, 5px -3px 8px rgb(250, 252, 162) }
+    50% { box-shadow: 5px 5px 8px rgb(250, 252, 162), -5px -5px 8px #D5D717, -5px 5px 8px #FF6F61, 5px -3px 8px rgb(192, 196, 0) }
+    75% { box-shadow: 5px 5px 8px rgb(192, 196, 0), -5px -5px 8px #FF6F61, -5px 5px 8px rgb(250, 252, 162), 5px -3px 8px #D5D717 }
+    100% { box-shadow: 5px 5px 8px #D5D717, -5px -5px 8px rgb(250, 252, 162), -5px 5px 8px rgb(192, 196, 0), 5px -3px 8px #FF6F61 }
+  }
+
+  .submit {
+    background: #D5D717;
+    border: 2px solid #D5D717;
+    border-radius: 5px;
+    color: #454545;
+    font-style: bold;
+    margin-right: 5px;
+    font-size: 14pt;
+    margin-right: 32px;
+    margin-left: 32px;
+    margin-top: 15px;
+    width: 80%;
+    float: left;
+    transition: 0.5s;
+    box-shadow: 3px 3px 5px #818181;
+  }
+
+  .submit-2 {
+    background: #D5D717;
+    border: 2px solid #D5D717;
+    border-radius: 5px;
+    color: #454545;
+    font-style: bold;
+    margin-right: 5px;
+    font-size: 14pt;
+    transition: 0.5s;
+    box-shadow: 3px 3px 10px #818181;
+    float: right;
+  }
+
+  .submit-2:hover {
+    background: #FF6F61;
+    border: 2px solid #FF6F61;
+    color: #454545;
+  }
+
+  .submit:hover {
+    background: #FF6F61;
+    border: 2px solid #FF6F61;
+    color: #454545;
+  }
+
+  .title {
+    color: whitesmoke;
+    font-size: 20pt;
+    margin-left: 10px;
+    display: inline-block;
+  }
+
+  .header {
+    height: 40px;
+    font-weight: bolc;
+    font-style: italic;
+    font-family: 'Righteous', cursive;
+    background: #00656B;
+    padding-top: 2px;
+  }
+
+  .header-right {
+    float: right;
+  }
+
+  .order-name {
+    display: inline-block;
+    color: lightgray;
+    margin-right: 25px;
+    margin-top: 7px;
+  }
+
+  /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  -webkit-animation-name: fadeIn; /* Fade in the background */
+  -webkit-animation-duration: 0.4s;
+  animation-name: fadeIn;
+  animation-duration: 0.4s
+}
+
+/* Modal Content */
+.modal-content {
+  position: fixed !important;
+  bottom: 0;
+  background-color: #fefefe;
+  width: 100%;
+  margin: auto;
+  -webkit-animation-name: slideIn;
+  -webkit-animation-duration: 0.4s;
+  animation-name: slideIn;
+  animation-duration: 0.4s
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #FF6F61;
+  color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #00656B;
+  color: white;
+}
+
+/* Add Animation */
+@-webkit-keyframes slideIn {
+  from {bottom: -300px; opacity: 0} 
+  to {bottom: 0; opacity: 1}
+}
+
+@keyframes slideIn {
+  from {bottom: -300px; opacity: 0}
+  to {bottom: 0; opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+  from {opacity: 0} 
+  to {opacity: 1}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0} 
+  to {opacity: 1}
+}
+
+.showcase {
+  position: relative;
+  color: black !important;
+  border: 1px solid #FF6F61 !important;
+  background-color: #FF6F61 !important;
+  transition: 1s;
+}
+
+.showcase button {
+  background-color: #D5D717 !important;
+  border: 1px solid #FF6F61 !important;
+  transition: 1s;
+}
+
+.showcase button:hover {
+  background-color: rgb(237, 238, 180) !important;
+  border: 1px solid #FF6F61 !important;
+  color: #454545 !important;
+  transition: 1s;
+}
+
+.greyed-out {
+  background-color: lightgray !important;
+  transition: 1s;
+  border: 1px solid lightgray !important;
+}
+
+.greyed-out button {
+  background-color: white !important;
+  color: lightgray !important;
+  border: 1px solid lightgray !important;
+}
+
+.dep-modal {
+  display: none;
+  position: fixed;
+  padding-top: 40px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.dep-modal-content {
+  position: relative;
+  background-color: white;
+  padding: 20px;
+  margin-right: 0;
+  margin-left: auto;
+  height: 100%;
+  width: 25%;
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+  font-size: 14pt;
+}
+
+.dep-modal-header {
+  font-size: 16pt;
+  font-weight: bold;
+  border-bottom: 1px solid black;
+  padding-bottom: 25px;
+}
+
+.dep-info {
+  margin-top: 35px;
+  font-size: 14pt;
+}
+
+.close-btn {
+  float: right; 
+  color: lightgray; 
+  font-size: 24px;  
+  font-weight: bold;
+}
+.close-btn:hover {
+  color: darkgray;
+}
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+.dropbtn {
+  background-color: #FF6F61;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: rgb(255, 193, 188);
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 230px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  margin-top: 55px;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+
+#myInput {
+  box-sizing: border-box;
+  background-image: url('searchicon.png');
+  background-position: 14px 12px;
+  background-repeat: no-repeat;
+  font-size: 16px;
+  padding: 14px 20px 12px 45px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+}
+
+#myInput:focus {outline: 3px solid #ddd;}
+
