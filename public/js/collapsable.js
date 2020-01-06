@@ -15,8 +15,9 @@ function getOrder() {
             document.getElementById("saved-name").innerHTML = taskList.OrderClass + ' v' + taskList.orderVersion;
             console.log(taskList)
         },
-        error : function(request,error)
-        {
+        error : function(jqXHR, textStatus, errorThrown){
+            var errorMessage = "An error has occurred: " + textStatus + " " + errorThrown;
+            alert(errorMessage)
         }
     });
 

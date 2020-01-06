@@ -42,29 +42,34 @@ function initialize() {
             res.sendFile(path.join(__dirname + '/index.html'));
         });
 
-        app.post('/name', function(req, res) {
-            console.log(req)
-            res.json({name: "New Name"});
-        });
-
         app.post('/get-order', function(req, res) {
             'use strict';
             const fs = require('fs');
-            let rawdata = fs.readFileSync(req.body.order + '.json');
-            let student = JSON.parse(rawdata);
-            res.json(student);
+            
+            try {
+                let rawdata = fs.readFileSync(req.body.order + '.json');
+                let student = JSON.parse(rawdata);
+                res.json(student);
+            } catch(e) {
+                console.log(e);
+                res.send(e);
+            }
         });
 
         app.post('/update-order', function(req, res) {
             'use strict';
-            
             const fs = require('fs');
+
             let order = req.body
+            let data = JSON.stringify(order, null, 2);
 
-            let data = JSON.stringify(student, null, 2);
-            fs.writeFileSync(req.body.orderName + '.json', data);
-
-            res.send('Order Updsated Successfully');
+            try {
+                fs.writeFileSync(req.body.orderName + '.json', data);
+                res.send('Order Updated Successfully');
+            } catch(e) {
+                console.log(e);
+                res.send(e);
+            }
         })
 
         httpServer.listen(webServerConfig.port).on('listening', () => {
