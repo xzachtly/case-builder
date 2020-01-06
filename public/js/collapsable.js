@@ -1,23 +1,29 @@
 
 var connections = [];
 
-var siteName = '';
-
-function getName() {
+function getOrder() {
+    var formData = {order: "SimpleResidentialEstimate"}
+    var order;
     $.ajax({
-        'url' : 'http://localhost:3000/name',
-        'type' : 'POST',
-        'success' : function(data) {              
-            siteName = data.name;
-            console.log(siteName)
-            $('#site-name').replaceWith("<h2>" + siteName + "</h2>")
+        url : "http://localhost:3000/get-order",
+        type : "POST",
+        data: formData,
+        dataType: "json",
+        success : function(data) {              
+            taskList = data;
+            document.getElementById("order-name").innerHTML = taskList.OrderClass + ' v' + taskList.orderVersion;
+            document.getElementById("saved-name").innerHTML = taskList.OrderClass + ' v' + taskList.orderVersion;
+            console.log(taskList)
         },
-        'error' : function(request,error)
+        error : function(request,error)
         {
-            alert("Request: "+JSON.stringify(request));
         }
     });
+
+    return order;
 }
+
+getOrder();
 
 var config = {
     container: "#collapsable-example",
@@ -42,7 +48,7 @@ var config = {
     }
 }
 
-    var taskList = {
+    /*var taskList = {
         "OrderClass" : "CCI-CE-SOM-Work-BuildEstimate-Simple",
         "orderVersion": "1.0.1",
         "Tasks" : [
@@ -95,10 +101,8 @@ var config = {
                 "ParentKey": null
             }
         ]
-    }
-
-    document.getElementById("order-name").innerHTML = taskList.OrderClass + ' v' + taskList.orderVersion;
-    document.getElementById("saved-name").innerHTML = taskList.OrderClass + ' v' + taskList.orderVersion;
+    }*/
+    var taskList = "";
 
     addressReview = "Address Review";
     fieldEstimate= "Field Estimate";
@@ -160,7 +164,6 @@ var config = {
     var taskId;
 
     function initializeTree(status) {
-        //getName();
         taskId = 1;
         if (status === "new") {
             malory = {
