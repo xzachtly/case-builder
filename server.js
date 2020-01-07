@@ -64,7 +64,7 @@ function initialize() {
             let data = JSON.stringify(order, null, 2);
 
             try {
-                fs.writeFileSync(req.body.orderName + '.json', data);
+                fs.writeFileSync(req.body.orderName + '-' + req.body.orderVersion + '.json', data);
                 res.send('Order Updated Successfully');
             } catch(e) {
                 console.log(e);

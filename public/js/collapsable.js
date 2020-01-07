@@ -2,7 +2,7 @@
 var connections = [];
 
 function getOrder() {
-    var formData = {order: "SimpleResidentialEstimate"}
+    var formData = {order: "SimpleResidentialEstimate-1.0.1"}
     var order;
     $.ajax({
         url : "http://localhost:3000/get-order",
@@ -203,7 +203,7 @@ var config = {
                 addTask = {
                 task: taskList.Tasks[i].TaskName,
                 text: {
-                    taskNum: i
+                    taskNum: i,
                 },
                 innerHTML: '<p class="task" id="' + taskList.Tasks[i].TaskKey + '">' + taskList.Tasks[i].TaskName + '</p><i class="material-icons-outlined" onclick="setParent(' + taskList.Tasks[i].TaskKey + '); slaModal();">settings_applications' +
                 '</i><div><div class="task-info"><div id="' + taskList.Tasks[i].TaskKey + 'sla" class="task-sla">SLA:  ' + taskList.Tasks[i].SLA +
@@ -231,7 +231,7 @@ var config = {
     
             if(taskList.Tasks[i].DependentKey.length > 1) {
                 for (m=1; m<taskList.Tasks[i].DependentKey.length; m++) {
-                    connections.push([taskList.Tasks[i].DependentKey[m], taskList.Tasks[i].TaskKey]);
+                    connections.push([taskList.Tasks[i].TaskKey, taskList.Tasks[i].DependentKey[m]]);
                 }
             }
     

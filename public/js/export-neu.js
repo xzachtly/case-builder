@@ -55,10 +55,12 @@ function createOutput() {
                             Department: "Construction",
                             OrderClass: orderClass,
                             TaskKey: chart_config[j].taskId,
+                            TaskName: chart_config[j].task,
                             TaskClass: (chart_config[j].orderName !== undefined && chart_config[j].orderName !== "" && chart_config[j].orderName !== "undefined") ? orderClass + "-" + chart_config[j].task.replace(/\s/g, '') : "",
-                            DependentKey: (chart_config[j].dependents[0] !== undefined && chart_config[j].dependents[0] !== -1) ? chart_config[j].dependents[0].toString() : "",
-                            role: chart_config[j].role,
-                            sla: chart_config[j].sla,
+                            DependentKey: (chart_config[j].dependents[0] !== undefined && chart_config[j].dependents[0] !== -1) ? [chart_config[j].dependents[0]] : [],
+                            Role: chart_config[j].role,
+                            ParentKey: chart_config[j].parents,
+                            SLA: chart_config[j].sla,
                             SortSequence: idHolder
                         });
                         ids.push(chart_config[j].taskId);
@@ -97,13 +99,15 @@ function createOutput() {
     for(i=1; i<chart_config.length; i++) {
         for(j=0; j<connections.length; j++) {
             if(connections[j][0]===chart_config[i].taskId) {
-                dependencies[i].DependentKey += ', ' + connections[j][1].toString();
+                /*dependencies[i].DependentKey += ', ' + connections[j][1].toString();*/
+                dependencies[i-1].DependentKey.push(connections[j][1]);
             }
         }
     }
 
     request = {
         OrderClass: orderClass,
+        orderVersion: taskList.orderVersion,
         Tasks: dependencies
     }
     
