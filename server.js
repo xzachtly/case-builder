@@ -15,8 +15,6 @@ app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
 });*/
 
-app.listen(8080);
-
 function initialize() {
 
     return new Promise((resolve, reject) => {

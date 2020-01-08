@@ -9,7 +9,8 @@ console.log(chart_config)
         function newTree(parent, task, taskSla, taskRole, orderName) {
             newNodeDef = {
                 text: {
-                    taskNum: taskId
+                    taskNum: taskId,
+                    taskIndex: taskId
                 },
                 innerHTML: '<p class="task" id="' + taskId + '">' + task + '</p><i class="material-icons-outlined" onclick="setParent(' + taskId + '); slaModal();">settings_applications' +
                 '</i><div><div class="task-info"><div id="' + taskId + 'sla" class="task-sla">SLA:  ' + taskSla +
@@ -82,9 +83,9 @@ console.log(chart_config)
 
             /* Add loop here to get array location based on taskId of node */
             for (i=0; i<tree.tree.nodeDB.db.length; i++) {
-                if (tree.tree.nodeDB.db[i].text.taskNum===node2) {
+                if (tree.tree.nodeDB.db[i].text.taskIndex===node2) {
                     spot2 = i;
-                } else if (tree.tree.nodeDB.db[i].text.taskNum===node1) {
+                } else if (tree.tree.nodeDB.db[i].text.taskIndex===node1) {
                     spot1 = i;
                 }
             }

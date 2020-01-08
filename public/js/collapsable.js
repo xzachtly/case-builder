@@ -5,7 +5,7 @@ function getOrder() {
     var formData = {order: "SimpleResidentialEstimate-1.0.1"}
     var order;
     $.ajax({
-        url : "http://localhost:3000/get-order",
+        url : "http://localhost:8080/get-order",
         type : "POST",
         data: formData,
         dataType: "json",
@@ -170,7 +170,8 @@ var config = {
             malory = {
                 task: "Design Review",
                 text: {
-                    taskNum: 1
+                    taskNum: 1,
+                    taskIndex: 1
                 },
                 innerHTML: '<p class="task" id="0">Design Review</p><i class="material-icons-outlined" onclick="setParent(0); slaModal();">settings_applications</i><div><div class="task-info"><div  id="0sla" class="task-sla">SLA:  3' +
                 '</div><div id="0role" class="task-role">Queue:  Planner</div></div><div class=button-group><button class="openbtn" onclick="setParent(0' +
@@ -204,6 +205,7 @@ var config = {
                 task: taskList.Tasks[i].TaskName,
                 text: {
                     taskNum: i,
+                    taskIndex: taskList.Tasks[i].TaskKey
                 },
                 innerHTML: '<p class="task" id="' + taskList.Tasks[i].TaskKey + '">' + taskList.Tasks[i].TaskName + '</p><i class="material-icons-outlined" onclick="setParent(' + taskList.Tasks[i].TaskKey + '); slaModal();">settings_applications' +
                 '</i><div><div class="task-info"><div id="' + taskList.Tasks[i].TaskKey + 'sla" class="task-sla">SLA:  ' + taskList.Tasks[i].SLA +
