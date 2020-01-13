@@ -12,9 +12,11 @@ function startPlayback() {
 
     if (newConfig !== undefined) {
         tree = new Treant(newConfig, $);
+        buildConnections();
         $('#' + newConfig[1].taskId).parent().addClass("fade-in");
     } else {
         tree = new Treant(chart_config, $);
+        buildConnections();
         $('#' + chart_config[1].taskId).parent().addClass("fade-in");
     }
 
@@ -38,8 +40,8 @@ function next() {
     if (newConfig[0] !== undefined) {
         for (j=1; j<newConfig.length; j++) {
             if(newConfig[j].taskId === parent) {
-                for (i=0; i<newConfig[j].children.length; i++) {
-                    $('#' + newConfig[j].children[i].taskId).parent().addClass("fade-in");
+                for (i=0; i<newConfig[j].childrenId.length; i++) {
+                    $('#' + newConfig[j].childrenId[i]).parent().addClass("fade-in");
                 }
             }
         }
@@ -47,7 +49,7 @@ function next() {
         for (j=1; j<chart_config.length; j++) {
             if(chart_config[j].taskId === parent) {
                 for (i=0; i<chart_config[j].children.length; i++) {
-                    $('#' + chart_config[j].children[i].taskId).parent().addClass("fade-in");
+                    $('#' + chart_config[j].childrenId[i]).parent().addClass("fade-in");
                 }
             }
         }
@@ -60,6 +62,7 @@ function back() {
         tree.destroy();
     }
     tree = new Treant(chart_config, $);
+    buildConnections();
     onTreeLoad();
 
     $(tree).ready(function() {
