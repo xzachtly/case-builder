@@ -46,7 +46,6 @@ function createOutput() {
 
     function createIds(nLevel) {
         nextRound = [];
-        ids = [];
         for (i=0; i<nLevel.length; i++) {
             for (j=1; j<chart_config.length; j++) {
                 if (nLevel[i] === chart_config[j].taskId){
@@ -57,7 +56,7 @@ function createOutput() {
                             TaskKey: chart_config[j].taskId,
                             TaskName: chart_config[j].task,
                             TaskClass: (chart_config[j].orderName !== undefined && chart_config[j].orderName !== "" && chart_config[j].orderName !== "undefined") ? orderClass + "-" + chart_config[j].task.replace(/\s/g, '') : "",
-                            DependentKey: (chart_config[j].dependents[0] !== undefined && chart_config[j].dependents[0] !== -1) ? [chart_config[j].dependents[0]] : [],
+                            DependentKey: (chart_config[j].parents[0] !== undefined && chart_config[j].parents[0] !== -1) ? chart_config[j].parents : [],
                             Role: chart_config[j].role,
                             ParentKey: chart_config[j].parents,
                             SLA: chart_config[j].sla,
@@ -80,7 +79,7 @@ function createOutput() {
                             }
                         }*/
                         for (k=0; k<chart_config[j].childrenId.length; k++) {
-                            if(!nextRound.includes(chart_config[j].childrenId[k]) && !ids.includes(chart_config[j].childrenId[k])) {
+                            if(!nextRound.includes(chart_config[j].childrenId[k]) && !ids.includes(chart_config[j].childrenId[k]) && !nLevel.includes(chart_config[j].childrenId[k])) {
                                 nextRound.push(chart_config[j].childrenId[k]);
                             }
                         }
@@ -96,14 +95,14 @@ function createOutput() {
         dependencies.push( { task: chart_config[i].task, dependents: [chart_config[i].pId], role: chart_config[i].role, sla: chart_config[i].sla} );
     }*/
 
-    for(i=1; i<chart_config.length; i++) {
+    /*for(i=1; i<chart_config.length; i++) {
         for(j=0; j<connections.length; j++) {
             if(connections[j][0]===chart_config[i].taskId) {
-                /*dependencies[i].DependentKey += ', ' + connections[j][1].toString();*/
+                /*dependencies[i].DependentKey += ', ' + connections[j][1].toString();*//*
                 dependencies[i-1].DependentKey.push(connections[j][1]);
             }
         }
-    }
+    }*/
 
     request = {
         OrderClass: orderClass,
