@@ -21,7 +21,6 @@
 </head>
 <body>
     <div class="header">
-        <div class="title" id="site-name">Case Designer</div>
         <div class="header-right">
           <div id="order-branch">
               <div class="order-name" id="order-name" onclick="branchList();"></div>
@@ -29,7 +28,8 @@
           </div>
           <i class="material-icons-round save" onclick="createOutput(); download(JSON.stringify(request), 'json.txt', 'text/plain');">save_alt</i>
           <i class="material-icons-round play" onclick="startPlayback();">play_circle_outline</i>
-          <button id="myBtn" class="submit-2">Submit</button>
+          <i class="material-icons-round send">send</i>
+          <!--<button id="myBtn" class="submit-2">Submit</button>-->
         </div>
     </div>
     <button class="back-button" onclick="back();">
@@ -155,12 +155,12 @@
         </script>
 
     <script>
-      let modalBtn = document.getElementById("modal-btn")
+      /*let modalBtn = document.getElementById("modal-btn")*/
       let depModal = document.querySelector(".dep-modal")
       let closeBtn = document.querySelector(".close-btn")
-      modalBtn.onclick = function(){
+      /*modalBtn.onclick = function(){
         depModal.style.display = "block"
-      }
+      }*/
       closeBtn.onclick = function(){
         depModal.style.display = "none"
       }
@@ -173,16 +173,16 @@
             var modal = document.getElementById("myModal");
             
             // Get the button that opens the modal
-            var btn = document.getElementById("myBtn");
+            /*var btn = document.getElementById("myBtn");*/
             
             // Get the <span> element that closes the modal
             var span = document.getElementsByClassName("close")[0];
             
             // When the user clicks the button, open the modal 
-            btn.onclick = function() {
+            /*btn.onclick = function() {
               modal.style.display = "block";
               createOutput();
-            }
+            }*/
             
             // When the user clicks on <span> (x), close the modal
             span.onclick = function() {
