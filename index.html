@@ -21,6 +21,7 @@
 </head>
 <body>
     <div class="header">
+      <div class="title">Case Designer</div>
         <div class="header-right">
           <div id="order-branch">
               <div class="order-name" id="order-name" onclick="branchList();"></div>
@@ -34,7 +35,8 @@
     </div>
     <button class="back-button" onclick="back();">
       <i class="material-icons" id="back-arrow">arrow_back_ios</i>
-    </button>
+    </button>-
+    <div id="tree-hole"></div>
     <div class="tree-space">
         <div class="chart" id="collapsable-example"></div>
     </div>
@@ -165,6 +167,7 @@
       }*/
       closeBtn.onclick = function(){
         depModal.style.display = "none"
+        openNav();
       }
     </script>
     <script src="/js/playback.js"></script>
@@ -218,6 +221,7 @@
               }
               if (event.target == depModal) {
                 depModal.style.display = "none";
+                openNav();
                 document.getElementById("myDropdown").classList.remove("show");
               }
             }

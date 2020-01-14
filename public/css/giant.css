@@ -55,7 +55,7 @@ button {
 
 .sidebar {
     height: 90%;
-    width: 0;
+    width: 500px;
     position: fixed;
     top: 0;
     left: 0;
@@ -193,8 +193,8 @@ button {
   }
 
   .submit {
-    background: #007bff;
-    border: 2px solid #007bff;
+    background: #53599A;
+    border: 2px solid white;
     border-radius: 10px;
     color: whitesmoke;
     font-style: bold;
@@ -206,7 +206,6 @@ button {
     width: 80%;
     float: left;
     transition: 0.5s;
-    box-shadow: 3px 3px 5px #818181;
   }
 
   .submit-2 {
@@ -235,8 +234,9 @@ button {
 
   .title {
     color: whitesmoke;
-    font-size: 20pt;
-    margin-left: 10px;
+    font-size: 28pt;
+    margin-left: 18px;
+    margin-top: 10px;
     display: inline-block;
     font-family: 'Righteous', cursive !important;
   }
@@ -403,19 +403,20 @@ button {
 
 .dep-modal-content {
   position: relative;
-  background-color: #001944;
+  background-color: #53599A;
   border-left: 0.5px solid #818181;
   color: whitesmoke;
   padding: 20px;
-  margin-right: 0;
-  margin-left: auto;
   height: 100%;
-  width: 40%;
+  width: 500px;
+  border-radius: 15px;
   -webkit-animation-name: animatetop;
   -webkit-animation-duration: 0.4s;
   animation-name: animatetop;
   animation-duration: 0.4s;
   font-size: 14pt;
+  margin-left: 15px;
+  margin-top: 50px;
 }
 
 .dep-modal-header {
@@ -449,7 +450,7 @@ button {
 }
 
 .dropbtn {
-  background-color: #007bff;
+  background-color: #FF9F1C;
   border-radius: 5px;
   color: white;
   padding: 16px;
@@ -460,7 +461,7 @@ button {
 }
 
 .dropbtn:hover, .dropbtn:focus {
-  background-color: #56a7fd;
+  background-color: #ffd08f;
 }
 
 .dropdown {
@@ -563,21 +564,25 @@ button {
   margin-top: 3px;
   margin-right: 6px;
   float: right;
-  color: rgb(117, 184, 255);
+  color: #FF9F1C;
   transition: 1s
 }
 
 .material-icons-outlined:hover {
-  color: rgb(201, 226, 253);
+  color: #f8c783;
   transition: 1s
 }
 
 .connection > .material-icons-outlined {
-  color: #556d96;
+  color: #53599A;
 }
 
 .child > .material-icons-outlined {
-  color: #98bbf8;
+  color: whitesmoke;
+}
+
+.greyed-out > .material-icons-outlined {
+  color: #53599A;
 }
 
 .sla-modal {
@@ -661,10 +666,10 @@ button {
   height: 100% !important;
   width: 100%;
   /*background-image: linear-gradient(45deg, #AAD7FF,#BDA3FF, #6AE2D4, #EDA8D0, #60B8F2);*/
-  background: -webkit-linear-gradient(110deg, #001944 60%, #1f32a8 60%);
-  background: -o-linear-gradient(110deg, #001944 60%, #1f32a8 60%);
-  background: -moz-linear-gradient(110deg, #001944 60%, #1f32a8 60%);
-  background: linear-gradient(110deg, #001944 60%, #1f32a8 60%);
+  background: -webkit-linear-gradient(110deg, #0c0c23 60%, #53599A 60%);
+  background: -o-linear-gradient(110deg, #0c0c23 60%, #53599A 60%);
+  background: -moz-linear-gradient(110deg, #0c0c23 60%, #53599A 60%);
+  background: linear-gradient(110deg, #0c0c23 60%, #53599A 60%);
   /*background-image: linear-gradient(to right, #001944, #1f32a8, #C60C30);*/
   -webkit-animation-name: animatetop;
   -webkit-animation-duration: 0.4s;
@@ -739,7 +744,7 @@ button {
 }
 
 .dark-body {
-  background: black !important;
+  background: #2C2C40 !important;
 }
 
 .material-icons-round.play {
@@ -851,7 +856,7 @@ button {
   position: relative;
   left: 33%;
   width: 65%;
-  margin-top: 50px;
+  margin-top: 27px;
   background-color: #333349 !important;
   background-size: 40px 40px;
   background-image: radial-gradient(circle, white 1px, rgba(0, 0, 0, 0) 1px);

@@ -1,8 +1,10 @@
 var playbackTree_config;
 var playbackTree;
 var newConfig;
+var treeHole = document.getElementById('tree-hole');
 
 function startPlayback() {
+    closeNav();
     chart_config[0].rootOrientation = 'WEST';
     if (tree) {
         tree.destroy();
@@ -11,10 +13,12 @@ function startPlayback() {
     playFromIndex();
 
     if (newConfig !== undefined) {
+        treeHole.innerHTML = '<div class="chart" id="collapsable-example"></div>';
         tree = new Treant(newConfig, $);
         buildConnections();
         $('#' + newConfig[1].taskId).parent().addClass("fade-in");
     } else {
+        treeHole.innerHTML = '<div class="chart" id="collapsable-example"></div>';
         tree = new Treant(chart_config, $);
         buildConnections();
         $('#' + chart_config[1].taskId).parent().addClass("fade-in");
@@ -24,6 +28,8 @@ function startPlayback() {
 
     $('.chart.Treant.Treant-loaded').css('margin-top', '10%');
     $('body').addClass("dark-body");
+
+    $('.tree-space').toggle("hide")
 
     $('.back-button').toggle("show");
 
@@ -57,6 +63,9 @@ function next() {
 }
 
 function back() {
+    $('.tree-space').toggle("hide")
+    openNav();
+    treeHole.innerHTML = "";
     chart_config[0].rootOrientation = 'NORTH';
     if (tree) {
         tree.destroy();
