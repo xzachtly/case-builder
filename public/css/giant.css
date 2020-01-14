@@ -8,9 +8,9 @@ q:before,q:after { content:''; }
 abbr,acronym { border:0; }
 
 body {
-  background: #fff;
+  background-color: #2C2C40 !important;
   background-size: 40px 40px;
-  background-image: radial-gradient(circle, #000000 1px, rgba(0, 0, 0, 0) 1px);
+  background-image: radial-gradient(circle, white 1px, rgba(0, 0, 0, 0) 1px);
 }
 
 * {
@@ -24,8 +24,8 @@ body {
   border: white;
   border-radius: 3px;
   min-width: 200px;
-  background: #1f32a8;
-  border: 1px solid #1f32a8;
+  background: #53599A;
+  border: 1px solid #53599A;
   color: white;
   border-radius: 8px;
   transition: 1s;
@@ -51,18 +51,20 @@ button {
 }
 
 .sidebar {
-    height: 100%;
+    height: 90%;
     width: 0;
     position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #001944;
+    background-color: #53599A;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
     border-right: 1px solid #818181;
-    margin-top: 40px;
+    margin-top: 60px;
+    border-radius: 30px;
+    margin-left: 15px;
   }
   
   .sidebar a {
@@ -113,18 +115,18 @@ button {
     display: none;
     font-size: 15px;
     cursor: pointer;
-    background-color: rgb(54, 109, 204);
-    color: white;
+    background-color: #9da3eb;
+    color: #53599A;
     padding: 5px 12px;
-    border: 1px solid #00338D;
+    border: 1px solid #53599A;
     border-radius: 5px;
     font-weight: bold;
     transition: 1s;
   }
   
   .openbtn:hover {
-    background-color: rgb(188, 219, 252);
-    color: white;
+    background-color: #c2c7f8;
+    transition: 1s;
   }
   
   #main {
@@ -340,8 +342,8 @@ button {
 
 .showcase {
   position: relative;
-  border: 1px solid #1f32a8 !important;
-  background-color: #1f32a8 !important;
+  border: 1px solid #53599A !important;
+  background-color: #53599A !important;
   transition: 1s;
 }
 
@@ -355,14 +357,15 @@ button {
 
 .connection {
   position: relative;
-  border: 1px solid #001944 !important;
-  background-color: #001944 !important;
+  border: 1px solid #272e75 !important;
+  background-color: #272e75 !important;
   transition: 1s;
 }
 
 .connection button {
-  background-color: #385280 !important;
-  border: 1px solid #001944 !important;
+  background-color: #636abd !important;
+  border: 1px solid #272e75 !important;
+  color: #272e75 !important;
   transition: 1s;
 }
 
@@ -373,15 +376,16 @@ button {
 }
 
 .greyed-out {
-  background-color: #c4c4c4 !important;
+  background-color: #2C2C40 !important;
   transition: 1s;
-  border: 1px solid #c4c4c4 !important;
+  border: 1px solid #53599A !important;
+  color: #53599A !important;
 }
 
 .greyed-out button {
-  background-color: white !important;
-  color: #c4c4c4 !important;
-  border: 1px solid #c4c4c4 !important;
+  background-color: #2C2C40 !important;
+  color: #53599A !important;
+  border: 1px solid #53599A !important;
 }
 
 .dep-modal {
@@ -500,14 +504,16 @@ button {
 
 .child {
   position: relative;
-  border: 1px solid #4470ff !important;
-  background-color: #4470ff !important;
+  border: 1px solid #b1b5db !important;
+  background-color: #b1b5db !important;
+  color: #2C2C40 !important;
   transition: 1s;
 }
 
 .child button {
-  background-color: #98bbf8 !important;
-  border: 1px solid #4470ff !important;
+  background-color: #f4f5ff !important;
+  border: 1px solid #b1b5db !important;
+  color: #b1b5db !important;
   transition: 1s;
 }
 
