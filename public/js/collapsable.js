@@ -1,8 +1,8 @@
 
 var connections = [];
 
-function getOrder() {
-    var formData = {order: "SimpleResidentialEstimate-1.0.1"}
+function getOrder(fName) {
+    var formData = {order: fName}
     var order;
     $.ajax({
         url : "http://localhost:8080/get-order",
@@ -24,7 +24,26 @@ function getOrder() {
     return order;
 }
 
-getOrder();
+function getUrlParam(parameter, defaultvalue){
+    var urlparameter = defaultvalue;
+    if(window.location.href.indexOf(parameter) > -1){
+        urlparameter = getUrlVars()[parameter];
+        }
+    return urlparameter;
+}
+
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
+}
+
+
+var fileName = getUrlParam('order', 'SimpleResidentialEstimate-1.0.1');
+
+getOrder(fileName);
 
 var config = {
     container: "#collapsable-example",
@@ -198,6 +217,8 @@ var config = {
             var addTask;
 
             chart_config = [config];
+
+            taskList.Tasks.sort(sortByProperty('TaskKey'));
     
             for (i=0; i<taskList.Tasks.length; i++) {
                 addTask = {};
@@ -245,6 +266,7 @@ var config = {
         tree = new Treant( chart_config, $ );
         buildConnections();
         onTreeLoad();
+        taskId++;
         return chart_config;
         }
     }
@@ -350,7 +372,7 @@ var config = {
             });
             $(".task").each(function () {
                 len=$(this).text().length;
-                str= $(this).text().substr(0,80);
+                str= $(this).text().substr(0,20);
                 lastIndexOf = str.lastIndexOf(" "); 
                 if(len>20) {
                     $(this).text(str.substr(0, lastIndexOf) + '…');
@@ -358,3 +380,9 @@ var config = {
             });
         })
     }
+
+    var sortByProperty = function (property) {
+        return function (x, y) {
+            return ((x[property] === y[property]) ? 0 : ((x[property] > y[property]) ? 1 : -1));
+        };
+    };
